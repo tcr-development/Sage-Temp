@@ -1,0 +1,14 @@
+﻿<template>
+   <table width="50%">
+      <thead>
+      <tr>
+         <th>Id</th>
+         <th>Name</th>
+      </tr>
+      </thead>
+      <tr repeat.for="company of companies">
+         <td>${company.id}</td>
+         <td><a href.bind=getUrl(company)>${company.name}</a></td>
+      </tr>
+   </table>
+</template>
