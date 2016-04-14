@@ -36,10 +36,10 @@ project.lock.json
 artifacts/
 
 # VS Code
-.vs/
+.vs/*
 
 # WebStorm
-.idea/
+.idea/*
 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100

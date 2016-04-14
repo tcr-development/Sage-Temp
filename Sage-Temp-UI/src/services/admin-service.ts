@@ -6,6 +6,7 @@ import * as _ from "underscore";
 @inject(HttpClient)
 export class AdminService {
    http: HttpClient;
+   private _companies: Company[] = [];
 
    constructor(http: HttpClient) {
       if (!http.isConfigured) {
@@ -20,30 +21,21 @@ export class AdminService {
    }
 
    getCompanies(): Promise<Company[]> {
-      return this.http.fetch("getcompanies")
-         .then(response => response.json())
-         .then(companies => {
-            var retVal: Company[] = [];
-            _.each(companies, c => {
-               // var company = new Company();
-               // company.addressLine1 = c.addressLine1;
-               // company.addressLine2 = c.addressLine2;
-               // company.city = c.city;
-               // company.createdDateUtc = c.createdDateUtc;
-               // company.id = c.id;
-               // company.isDisabled = c.isDisabled;
-               // company.isTestCompany = c.isTestCompany;
-               // company.name = c.name;
-               // company.notes = c.notes;
-               // company.phone = c.phone;
-               // company.primaryContact = c.primaryContact;
-               // company.state = c.state;
-               // company.zip = c.zip;
-               //retVal.push(company);
-               retVal.push(<Company>c);
-            });
-            return retVal;
-         });
+
+      if (this._companies.length > 0) {
+         return Promise.resolve(this._companies);
+      } else {
+         return this.http.fetch("getcompanies")
+            .then(response => response.json())
+            .then(companies => {
+               this._companies = [];
+               _.each(companies, c => {
+                  this._companies.push(<Company>c);
+               });
+               return this._companies;
+            });   
+      }
+      
    }
 
    getCompany(id: number): Promise<Company> {
