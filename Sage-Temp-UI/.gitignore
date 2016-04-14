@@ -31,6 +31,10 @@ $RECYCLE.BIN/
 # Thumbnails
 ._*
 
+# ASP.NET 5
+project.lock.json
+artifacts/
+ 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd
