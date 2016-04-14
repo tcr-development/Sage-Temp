@@ -20,8 +20,5 @@ export class Companies {
        return window["Globals"].baseUrl + "admin/edit/" + company.id;
    }
 
-   selectCompany(company: Company) {
-      this.selectedCompany = company;
-   }
 }
 

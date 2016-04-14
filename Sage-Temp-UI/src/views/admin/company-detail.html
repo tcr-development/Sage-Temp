@@ -1,0 +1,14 @@
+﻿<template bindable="company">
+   <form>
+      <div class="form-group">
+         <label>Name</label>
+         <input type="text" class="form-control" value.bind="company.name"/>
+      </div>
+      <div class="form-group">
+         <label>Address line 1</label>
+         <input type="text" class="form-control" value.bind="company.addressLine1" required />
+      </div>
+
+      <button type="submit" class="btn btn-default">Submit</button>
+   </form>
+</template>

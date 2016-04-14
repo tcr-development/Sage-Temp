@@ -10,11 +10,8 @@
          </thead>
          <tr repeat.for="company of companies">
             <td>${company.id}</td>
-            <td click.delegate="selectCompany(company)">${company.name}</td>
+            <td><a route-href="route: detail; params.bind: {id:company.id}">${company.name}</a></td>
          </tr>
       </table>   
-   </div>
-   <div class="col-md-6">
-      <company-detail company.bind="selectedCompany"></company-detail>   
    </div>
 </template>
